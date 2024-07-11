@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Aprendiz
-from .forms import AprendizForm
+from .models import Aprendiz, Calificaciones, Cursos
+from .forms import AprendizForm, CalificacionForm, CursoForm
 
 # Create your views here.
 
@@ -43,7 +43,63 @@ def form_aprendiz(request):
 
 
 def calificaciones(request):
-  return render(request, 'app_aprendiz/calificacion.html')
+  calificaciones = Calificaciones.objects.all
+  return render(request, 'app_aprendiz/calificacion.html', {'calificaciones': calificaciones})
+
+def crear_calificacion(request):
+  formulario_calificacion = CalificacionForm(request.POST or None)
+  if formulario_calificacion.is_valid():
+    formulario_calificacion.save()
+    return redirect('calificaciones')
+  return render(request, 'app_aprendiz/crear_calificacion.html', {'formulario_calificacion': formulario_calificacion})
+
+def editar_calificacion(request, id_calificacion):
+  calificacion = get_object_or_404(Calificaciones, id_calificacion=id_calificacion)
+  formulario_calificacion = CalificacionForm(instance=calificacion)
+  if request.POST == 'POST': 
+    formulario_calificacion = CalificacionForm(request.POST, instance=calificacion)
+    if formulario_calificacion.is_valid():
+      formulario_calificacion.save()
+  return render(request, 'app_aprendiz/editar_calificacion.html', {'formulario_calificacion': formulario_calificacion})
+
+
+def eliminar_calificacion(request, id_calificacion):
+  calificacion = get_object_or_404(Calificaciones, id_calificacion=id_calificacion)
+  calificacion.delete()
+  return redirect(request, 'calificaciones')
+
+def form_calificacion(request):
+  return render(request, 'app_aprendiz/form_calificacion.html')
+
+
+
+
 
 def cursos(request):
-  return render(request, 'app_aprendiz/curso.html')
+  cursos = Cursos.objects.all
+  return render(request, 'app_aprendiz/curso.html', {'cursos': cursos})
+
+def crear_curso(request):
+  formulario_curso = CursoForm(request.POST or None)
+  if formulario_curso.is_valid():
+    formulario_curso.save()
+    return redirect('cursos')
+  return render(request, 'app_aprendiz/crear_curso.html', {'formulario_curso': formulario_curso})
+
+def editar_curso(request, id_curso):
+  curso = get_object_or_404(Cursos, id_curso=id_curso)
+  formulario_curso = CursoForm(instance=curso)
+  if request.POST == 'POST': 
+    formulario_curso = CursoForm(request.POST, instance=curso)
+    if formulario_curso.is_valid():
+      formulario_curso.save()
+  return render(request, 'app_aprendiz/editar_curso.html', {'formulario_curso': formulario_curso})
+
+
+def eliminar_curso(request, id_curso):
+  curso = get_object_or_404(Cursos, id_curso=id_curso)
+  curso.delete()
+  return redirect(request, 'cursos')
+
+def form_curso(request):
+  return render(request, 'app_aprendiz/form_curso.html')

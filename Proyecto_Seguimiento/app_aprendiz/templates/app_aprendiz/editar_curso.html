@@ -1,0 +1,37 @@
+{% extends "app_aprendiz/pages_master.html" %}
+
+{% load static %}
+
+{% block titulo-document %}
+Curso
+{% endblock %}
+
+
+{% block descripcion %} Editar Curso {% endblock %}
+
+
+{% block contenido %}
+
+
+<form method="Post">
+    {% csrf_token %}
+    {{ formulario_curso }}
+
+
+    <a
+        name=""
+        id=""
+        class="btn btn-primary"
+        href="{% url 'cursos' %}"
+        role="submit"
+        >Enviar</a
+    >
+    
+    <button type="submit">hola</button>
+
+
+</form>
+
+
+
+{% endblock %}

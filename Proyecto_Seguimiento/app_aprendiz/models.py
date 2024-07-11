@@ -23,9 +23,9 @@ class Aprendiz(models.Model):
 
 class Calificaciones(models.Model):
     id_calificacion = models.AutoField(primary_key=True)
-    id_aprendiz = models.IntegerField()
-    id_curso = models.IntegerField()
-    nota = models.IntegerField()
+    id_aprendiz = models.IntegerField(verbose_name= 'ID Aprendiz')
+    id_curso = models.IntegerField(verbose_name= 'ID Curso')
+    nota = models.IntegerField(verbose_name= 'Nota')
 
     class Meta:
         managed = False
@@ -34,8 +34,8 @@ class Calificaciones(models.Model):
 
 class Cursos(models.Model):
     id_curso = models.AutoField(primary_key=True)
-    id_aprendiz = models.IntegerField()
-    curso = models.CharField(max_length=40)
+    id_aprendiz = models.IntegerField(verbose_name='ID Aprendiz')
+    curso = models.CharField(max_length=40, verbose_name='Curso')
 
     class Meta:
         managed = False
