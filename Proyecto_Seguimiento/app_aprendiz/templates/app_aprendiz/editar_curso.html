@@ -3,35 +3,25 @@
 {% load static %}
 
 {% block titulo-document %}
-Curso
+Cursos
 {% endblock %}
 
-
-{% block descripcion %} Editar Curso {% endblock %}
-
+{% block descripcion %}
+Editar Curso
+{% endblock %}
 
 {% block contenido %}
-
-
-<form method="Post">
+<form method="post">
     {% csrf_token %}
     {{ formulario_curso }}
 
-
+    <button type="submit" class="btn btn-primary">Enviar</button>
     <a
-        name=""
-        id=""
-        class="btn btn-primary"
+        class="btn btn-secondary"
         href="{% url 'cursos' %}"
-        role="submit"
-        >Enviar</a
+        role="button"
     >
-    
-    <button type="submit">hola</button>
-
-
+        Volver
+    </a>
 </form>
-
-
-
 {% endblock %}

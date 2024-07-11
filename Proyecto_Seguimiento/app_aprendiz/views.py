@@ -22,19 +22,22 @@ def crear_aprendiz(request):
   return render(request, 'app_aprendiz/crear_aprendiz.html', {'formulario_aprendiz': formulario_aprendiz})
 
 def editar_aprendiz(request, id_aprendiz):
-  aprendiz = get_object_or_404(Aprendiz, id_aprendiz=id_aprendiz)
-  formulario_aprendiz = AprendizForm(instance=aprendiz)
-  if request.POST == 'POST': 
-    formulario_aprendiz = AprendizForm(request.POST, instance=aprendiz)
-    if formulario_aprendiz.is_valid():
-      formulario_aprendiz.save()
-  return render(request, 'app_aprendiz/editar_aprendiz.html', {'formulario_aprendiz': formulario_aprendiz})
-
+    aprendiz = get_object_or_404(Aprendiz, id_aprendiz=id_aprendiz)
+    if request.method == "POST":
+        formulario_aprendiz = AprendizForm(request.POST, instance=aprendiz)
+        if formulario_aprendiz.is_valid():
+            formulario_aprendiz.save()
+            return redirect('aprendices')
+    else:
+        formulario_aprendiz = AprendizForm(instance=aprendiz)
+    return render(request, 'app_aprendiz/editar_aprendiz.html', {
+        'formulario_aprendiz': formulario_aprendiz
+    })
 
 def eliminar_aprendiz(request, id_aprendiz):
   aprendiz = get_object_or_404(Aprendiz, id_aprendiz=id_aprendiz)
   aprendiz.delete()
-  return redirect(request, 'aprendices')
+  return redirect('aprendices')
 
 def form_aprendiz(request):
   return render(request, 'app_aprendiz/form_aprendiz.html')
@@ -54,19 +57,22 @@ def crear_calificacion(request):
   return render(request, 'app_aprendiz/crear_calificacion.html', {'formulario_calificacion': formulario_calificacion})
 
 def editar_calificacion(request, id_calificacion):
-  calificacion = get_object_or_404(Calificaciones, id_calificacion=id_calificacion)
-  formulario_calificacion = CalificacionForm(instance=calificacion)
-  if request.POST == 'POST': 
-    formulario_calificacion = CalificacionForm(request.POST, instance=calificacion)
-    if formulario_calificacion.is_valid():
-      formulario_calificacion.save()
-  return render(request, 'app_aprendiz/editar_calificacion.html', {'formulario_calificacion': formulario_calificacion})
-
+    calificacion = get_object_or_404(Calificaciones, id_calificacion=id_calificacion)
+    if request.method == "POST":
+        formulario_calificacion = CalificacionForm(request.POST, instance=calificacion)
+        if formulario_calificacion.is_valid():
+            formulario_calificacion.save()
+            return redirect('calificaciones')
+    else:
+        formulario_calificacion = CalificacionForm(instance=calificacion)
+    return render(request, 'app_aprendiz/editar_calificacion.html', {
+        'formulario_calificacion': formulario_calificacion
+    })
 
 def eliminar_calificacion(request, id_calificacion):
   calificacion = get_object_or_404(Calificaciones, id_calificacion=id_calificacion)
   calificacion.delete()
-  return redirect(request, 'calificaciones')
+  return redirect('calificaciones')
 
 def form_calificacion(request):
   return render(request, 'app_aprendiz/form_calificacion.html')
@@ -87,19 +93,22 @@ def crear_curso(request):
   return render(request, 'app_aprendiz/crear_curso.html', {'formulario_curso': formulario_curso})
 
 def editar_curso(request, id_curso):
-  curso = get_object_or_404(Cursos, id_curso=id_curso)
-  formulario_curso = CursoForm(instance=curso)
-  if request.POST == 'POST': 
-    formulario_curso = CursoForm(request.POST, instance=curso)
-    if formulario_curso.is_valid():
-      formulario_curso.save()
-  return render(request, 'app_aprendiz/editar_curso.html', {'formulario_curso': formulario_curso})
-
+    curso = get_object_or_404(Cursos, id_curso=id_curso)
+    if request.method == "POST":
+        formulario_curso = CursoForm(request.POST, instance=curso)
+        if formulario_curso.is_valid():
+            formulario_curso.save()
+            return redirect('cursos')
+    else:
+        formulario_curso = CursoForm(instance=curso)
+    return render(request, 'app_aprendiz/editar_curso.html', {
+        'formulario_curso': formulario_curso
+    })
 
 def eliminar_curso(request, id_curso):
   curso = get_object_or_404(Cursos, id_curso=id_curso)
   curso.delete()
-  return redirect(request, 'cursos')
+  return redirect('cursos')
 
 def form_curso(request):
   return render(request, 'app_aprendiz/form_curso.html')
