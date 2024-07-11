@@ -1,0 +1,27 @@
+{% extends "app_aprendiz/pages_master.html" %}
+
+{% load static %}
+
+{% block titulo-document %}
+Aprendices
+{% endblock %}
+
+{% block descripcion %}
+Editar Aprendiz
+{% endblock %}
+
+{% block contenido %}
+<form method="post">
+    {% csrf_token %}
+    {{ formulario_aprendiz }}
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <a
+        class="btn btn-secondary"
+        href="{% url 'aprendices' %}"
+        role="button"
+    >
+        Volver
+    </a>
+</form>
+{% endblock %}

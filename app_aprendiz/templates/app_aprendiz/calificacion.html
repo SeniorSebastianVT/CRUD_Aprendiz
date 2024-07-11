@@ -3,13 +3,13 @@
 {% load static %}
 
 {% block titulo-document %}
-Aprendiz
+Calificacion
 {% endblock %}
 
 
-{% block titulo %} Aprendiz SENA {% endblock %}
+{% block titulo %} Calificaciones SENA {% endblock %}
 
-{% block descripcion %} Listados de aprendices {% endblock %}
+{% block descripcion %} Listados de calificaciones {% endblock %}
 
 
 
@@ -22,14 +22,14 @@ Aprendiz
     name=""
     id=""
     class="btn btn-success"
-    href="{% url 'crear_aprendiz' %}"
+    href="{% url 'crear_calificacion' %}"
     role="button"
-    >Agregar Aprendices</a
+    >Agregar calificacion</a
   >
   
 </div>
 
-{% for aprendiz in aprendices %}
+{% for Calificaciones in calificaciones %}
 
 <div
   class="table-responsive"
@@ -39,25 +39,26 @@ Aprendiz
   >
     <thead>
       <tr>º
+        <th scope="col">ID Calificacion</th>
         <th scope="col">ID Aprendiz</th>
-        <th scope="col">Nombres</th>
-        <th scope="col">Fecha Nacimiento</th>
-        <th scope="col">Telefòno</th>
+        <th scope="col">ID Curso</th>
+        <th scope="col">Nota</th>
         <th scope="col">Acciones</th>
       </tr>
     </thead>
 
     <tbody>
       <tr class="">
-        <td scope="row">{{ aprendiz.id_aprendiz }}</td>
-        <td>{{ aprendiz.nombres }}</td>
-        <td>{{ aprendiz.fecha_nacimiento }}</td>
-        <td>{{ aprendiz.telefono }}</td>
+        <td scope="row">{{ Calificaciones.id_calificacion }}</td>
+        <td>{{ Calificaciones.id_aprendiz }}</td>
+        <td>{{ Calificaciones.id_curso }}</td>
+        <td>{{ Calificaciones.nota }}</td>
+
         <td> <a
           name=""
           id=""
           class="btn btn-info"
-          href="{% url 'editar_aprendiz' aprendiz.id_aprendiz %}"
+          href="{% url 'editar_calificacion' Calificaciones.id_calificacion %}"
           role="button"
           >Editar</a
         > 
@@ -69,7 +70,7 @@ Aprendiz
         name=""
         id=""
         class="btn btn-danger"
-        href="{% url 'eliminar_aprendiz' aprendiz.id_aprendiz %}"
+        href="{% url 'eliminar_calificacion' Calificaciones.id_calificacion %}"
         role="button"
         >Eliminar</a
       >

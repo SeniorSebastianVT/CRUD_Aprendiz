@@ -3,13 +3,13 @@
 {% load static %}
 
 {% block titulo-document %}
-Aprendiz
+Cursos
 {% endblock %}
 
 
-{% block titulo %} Aprendiz SENA {% endblock %}
+{% block titulo %} Cursos SENA {% endblock %}
 
-{% block descripcion %} Listados de aprendices {% endblock %}
+{% block descripcion %} Listados de cursos {% endblock %}
 
 
 
@@ -22,14 +22,14 @@ Aprendiz
     name=""
     id=""
     class="btn btn-success"
-    href="{% url 'crear_aprendiz' %}"
+    href="{% url 'crear_curso' %}"
     role="button"
-    >Agregar Aprendices</a
+    >Agregar curso</a
   >
   
 </div>
 
-{% for aprendiz in aprendices %}
+{% for Cursos in cursos %}
 
 <div
   class="table-responsive"
@@ -39,25 +39,24 @@ Aprendiz
   >
     <thead>
       <tr>º
+        <th scope="col">ID Curso</th>
         <th scope="col">ID Aprendiz</th>
-        <th scope="col">Nombres</th>
-        <th scope="col">Fecha Nacimiento</th>
-        <th scope="col">Telefòno</th>
+        <th scope="col">Curso</th>
         <th scope="col">Acciones</th>
       </tr>
     </thead>
 
     <tbody>
       <tr class="">
-        <td scope="row">{{ aprendiz.id_aprendiz }}</td>
-        <td>{{ aprendiz.nombres }}</td>
-        <td>{{ aprendiz.fecha_nacimiento }}</td>
-        <td>{{ aprendiz.telefono }}</td>
+        <td scope="row">{{ Cursos.id_curso }}</td>
+        <td>{{ Cursos.id_aprendiz }}</td>
+        <td>{{ Cursos.curso }}</td>
+
         <td> <a
           name=""
           id=""
           class="btn btn-info"
-          href="{% url 'editar_aprendiz' aprendiz.id_aprendiz %}"
+          href="{% url 'editar_curso' Cursos.id_curso %}"
           role="button"
           >Editar</a
         > 
@@ -69,7 +68,7 @@ Aprendiz
         name=""
         id=""
         class="btn btn-danger"
-        href="{% url 'eliminar_aprendiz' aprendiz.id_aprendiz %}"
+        href="{% url 'eliminar_curso' Cursos.id_curso %}"
         role="button"
         >Eliminar</a
       >
