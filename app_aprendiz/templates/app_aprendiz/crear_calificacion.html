@@ -1,0 +1,28 @@
+{% extends "app_aprendiz/pages_master.html" %}
+
+{% load static %}
+
+{% block titulo-document %}
+Calificaciones
+{% endblock %}
+
+
+{% block descripcion %} Agregar Calificacion {% endblock %}
+
+
+{% block contenido %}
+
+<div class="card">
+    <div class="card-header">Agregar Calificacion</div>
+    <div class="card-body">
+        <h4 class="card-title">Calificaciones</h4>
+    </div>
+
+
+    {% include 'app_aprendiz/form_calificacion.html' %}
+
+</div>
+
+
+
+{% endblock %}

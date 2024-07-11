@@ -1,0 +1,88 @@
+{% extends "app_aprendiz/pages_master.html" %}
+
+{% load static %}
+
+{% block titulo-document %}
+Calificacion
+{% endblock %}
+
+
+{% block titulo %} Calificaciones SENA {% endblock %}
+
+{% block descripcion %} Listados de calificaciones {% endblock %}
+
+
+
+
+{% block contenido %}
+
+
+<div class="card-hearder">
+  <a
+    name=""
+    id=""
+    class="btn btn-success"
+    href="{% url 'crear_calificacion' %}"
+    role="button"
+    >Agregar calificacion</a
+  >
+  
+</div>
+
+{% for Calificaciones in calificaciones %}
+
+<div
+  class="table-responsive"
+>
+  <table
+    class="table table-primary"
+  >
+    <thead>
+      <tr>º
+        <th scope="col">ID Calificacion</th>
+        <th scope="col">ID Aprendiz</th>
+        <th scope="col">ID Curso</th>
+        <th scope="col">Nota</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr class="">
+        <td scope="row">{{ Calificaciones.id_calificacion }}</td>
+        <td>{{ Calificaciones.id_aprendiz }}</td>
+        <td>{{ Calificaciones.id_curso }}</td>
+        <td>{{ Calificaciones.nota }}</td>
+
+        <td> <a
+          name=""
+          id=""
+          class="btn btn-info"
+          href="{% url 'editar_calificacion' Calificaciones.id_calificacion %}"
+          role="button"
+          >Editar</a
+        > 
+        
+        
+        / 
+      
+      <a
+        name=""
+        id=""
+        class="btn btn-danger"
+        href="{% url 'eliminar_calificacion' Calificaciones.id_calificacion %}"
+        role="button"
+        >Eliminar</a
+      >
+      </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endfor %}
+
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "app_aprendiz/pages_master.html" %}
+
+{% load static %}
+
+{% block titulo-document %}
+Cursos
+{% endblock %}
+
+
+{% block descripcion %} Agregar Curso {% endblock %}
+
+
+{% block contenido %}
+
+<div class="card">
+    <div class="card-header">Agregar Curso</div>
+    <div class="card-body">
+        <h4 class="card-title">Cursos</h4>
+    </div>
+
+
+    {% include 'app_aprendiz/form_curso.html' %}
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,105 @@
+/*Encabezado*/
+
+body{
+    margin: 0;
+    padding: 0;
+    background-position: center center;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+.titulo {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 28px;
+}
+
+.img-center{
+    width: 90px;
+    height: 90px;
+}
+
+.tex2{
+    font-family: pompiere;
+    font-size: 28px;
+} 
+
+
+
+
+
+
+
+/* Estilos footer*/
+  
+.icono-footer{
+    width: 90px;
+}
+  
+.cultural{
+    width: 170px;
+    height: 170px;
+}
+  
+.info{
+    font-size: 26px;
+    font-family: pompiere;
+}
+  
+.footer-enlace{
+    color: #000;
+    text-decoration: none;
+}
+  
+.footer-enlace:hover{
+    color: #fff;
+    text-decoration: none;
+}
+    
+.Siguenos{
+    margin-bottom: 0%;
+    font-family: pompiere;
+    font-size: 26px;
+}
+  
+.text-reservado{
+    background: #000;
+    color: #fff;
+    font-family: pompiere,sans-serif;
+    font-size: 24px;
+}
+  
+.bi-facebook{
+    color: #2430d3;
+    width: 40px; 
+    height: 40px;
+}
+  
+.bi-facebook:hover{
+    color: #cc2df4;
+    width: 50px;
+}
+  
+.bi-instagram{
+    color: #f80f8f;
+    width: 40px; 
+    height: 40px;
+}
+  
+.bi-instagram:hover{
+    color: #cc2df4;
+    width: 50px;
+}
+  
+.bi-envelope-at-fill{
+    color: #00c3ff;
+    width: 40px; 
+    height: 40px;
+}
+  
+.bi-envelope-at-fill:hover{
+    color: #cc2df4;
+    width: 50px;
+}
+  
