@@ -1,0 +1,36 @@
+<form enctype="multipart/form-data" method="post">
+
+
+    {% csrf_token %}
+
+    {% for campo_aprendiz in formulario_aprendiz %}
+
+    <div class="mb-3">
+        <label for="" class="form-label">{{ campo_aprendiz.label }}</label>
+        <input
+            type="{{ campo_aprendiz.field.widget.input_type }}"
+            class="form-control"
+            name="{{ campo_aprendiz.name }}"
+            id=""
+            aria-describedby="helpId"
+            placeholder="{{ campo_aprendiz.label }}"
+        />
+    </div>
+
+    <div class="col-12 help-text"> {{ campo_aprendiz.errors }} </div>
+
+    {% endfor %}
+    
+
+    <input
+        name=""
+        id=""
+        class="btn btn-success"
+        type="submit"
+        value="Enviar"
+    />
+    
+
+
+
+</form>

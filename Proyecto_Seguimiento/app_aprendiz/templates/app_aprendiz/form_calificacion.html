@@ -1,0 +1,36 @@
+<form enctype="multipart/form-data" method="post">
+
+
+    {% csrf_token %}
+
+    {% for campo_calificacion in formulario_calificacion %}
+
+    <div class="mb-3">
+        <label for="" class="form-label">{{ campo_calificacion.label }}</label>
+        <input
+            type="{{ campo_calificacion.field.widget.input_type }}"
+            class="form-control"
+            name="{{ campo_calificacion.name }}"
+            id=""
+            aria-describedby="helpId"
+            placeholder="{{ campo_calificacion.label }}"
+        />
+    </div>
+
+    <div class="col-12 help-text"> {{ campo_calificacion.errors }} </div>
+
+    {% endfor %}
+    
+
+    <input
+        name=""
+        id=""
+        class="btn btn-success"
+        type="submit"
+        value="Enviar"
+    />
+    
+
+
+
+</form>

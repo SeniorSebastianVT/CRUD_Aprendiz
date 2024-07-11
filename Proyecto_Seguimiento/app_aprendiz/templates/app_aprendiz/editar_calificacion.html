@@ -1,0 +1,27 @@
+{% extends "app_aprendiz/pages_master.html" %}
+
+{% load static %}
+
+{% block titulo-document %}
+Calificaciones
+{% endblock %}
+
+{% block descripcion %}
+Editar Calificacion
+{% endblock %}
+
+{% block contenido %}
+<form method="post">
+    {% csrf_token %}
+    {{ formulario_calificacion }}
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <a
+        class="btn btn-secondary"
+        href="{% url 'calificaciones' %}"
+        role="button"
+    >
+        Volver
+    </a>
+</form>
+{% endblock %}

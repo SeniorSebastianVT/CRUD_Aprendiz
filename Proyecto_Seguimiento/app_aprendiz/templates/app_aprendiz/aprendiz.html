@@ -1,0 +1,87 @@
+{% extends "app_aprendiz/pages_master.html" %}
+
+{% load static %}
+
+{% block titulo-document %}
+Aprendiz
+{% endblock %}
+
+
+{% block titulo %} Aprendiz SENA {% endblock %}
+
+{% block descripcion %} Listados de aprendices {% endblock %}
+
+
+
+
+{% block contenido %}
+
+
+<div class="card-hearder">
+  <a
+    name=""
+    id=""
+    class="btn btn-success"
+    href="{% url 'crear_aprendiz' %}"
+    role="button"
+    >Agregar aprendiz</a
+  >
+  
+</div>
+
+{% for aprendiz in aprendices %}
+
+<div
+  class="table-responsive"
+>
+  <table
+    class="table table-primary"
+  >
+    <thead>
+      <tr>º
+        <th scope="col">ID Aprendiz</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Fecha Nacimiento</th>
+        <th scope="col">Telefòno</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr class="">
+        <td scope="row">{{ aprendiz.id_aprendiz }}</td>
+        <td>{{ aprendiz.nombres }}</td>
+        <td>{{ aprendiz.fecha_nacimiento }}</td>
+        <td>{{ aprendiz.telefono }}</td>
+        <td> <a
+          name=""
+          id=""
+          class="btn btn-info"
+          href="{% url 'editar_aprendiz' aprendiz.id_aprendiz %}"
+          role="button"
+          >Editar</a
+        > 
+        
+        
+        / 
+      
+      <a
+        name=""
+        id=""
+        class="btn btn-danger"
+        href="{% url 'eliminar_aprendiz' aprendiz.id_aprendiz %}"
+        role="button"
+        >Eliminar</a
+      >
+      </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endfor %}
+
+
+
+{% endblock %}
