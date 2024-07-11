@@ -33,7 +33,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'app_aprendiz',
-    'app_static',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,17 +76,16 @@ WSGI_APPLICATION = 'Proyecto_Seguimiento.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 
-"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': BASE_DIR / 'aprendices_sena',
+        'NAME': 'aprendices_sena',
         'USER': 'sena',
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': 3306,
     }
-}"""
+}
 
 
 # Password validation
